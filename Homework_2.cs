@@ -8,7 +8,6 @@ Console.WriteLine("GB_C#_Homework_2 Task_1");
 Console.WriteLine("Please enter a 3-digit number (number A): ");
 Start_A:
 var numberA = Console.ReadLine();
-//int number_numA = Convert.ToInt32(numberA);
 var digitArrayA = numberA!.ToArray();
 if(digitArrayA.Length >= 3)
 {
@@ -28,7 +27,6 @@ else
 Console.WriteLine("GB_C#_Homework_2 Task_2");
 Console.WriteLine("Please enter a number B: ");
 var numberB = Console.ReadLine();
-//int number_num = Convert.ToInt32(number);
 var digitArrayB = numberB!.ToArray();
 if(digitArrayB.Length >= 3)
 {
