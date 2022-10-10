@@ -11,7 +11,7 @@ var numberA = Console.ReadLine();
 var digitArrayA = numberA!.ToArray();
 if(digitArrayA.Length >= 3)
 {
-    Console.WriteLine($"{digitArrayA[2]}");
+    Console.WriteLine($"The second digit of {numberA} is {digitArrayA[1]}");
 }
 else
 {
@@ -30,7 +30,7 @@ var numberB = Console.ReadLine();
 var digitArrayB = numberB!.ToArray();
 if(digitArrayB.Length >= 3)
 {
-    Console.WriteLine($"{digitArrayB[2]}");
+    Console.WriteLine($"The third digit of {numberB} is {digitArrayB[2]}");
 }
 else
 {
