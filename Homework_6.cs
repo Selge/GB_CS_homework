@@ -184,7 +184,7 @@ class App
         if (PositiveZahlen[f] != -1) menge++;
     }
 
-    int [] NeuePositiveZahlen = new int[menge]; // Результирующий массив для чётных
+    int [] NeuePositiveZahlen = new int[menge]; // Результирующий массив для положительных
     int a = 0;
     for (int i = 0; i < PositiveZahlen.Length; i++)
     {
@@ -198,7 +198,7 @@ class App
 
 
     // Отрицательные числа
-    int [] NegativeZahlen = new int [Eingang.Length]; //создаём массив-аккумулятор для сбора нечётных чисел
+    int [] NegativeZahlen = new int [Eingang.Length]; //создаём массив-аккумулятор для сбора отрицательных чисел
     for(int i = 0; i < NegativeZahlen.Length; i++) 
     {
         NegativeZahlen[i] = -1; // Назначаем всем элементам аккумулятора значение -1;
@@ -206,17 +206,17 @@ class App
 
     for (int e = 0; e < Eingang.Length; e++) // Циклом выбираем из входящего массива все отрицательные
     {
-        if(Eingang[e] < 0) NegativeZahlen[e] = Eingang[e]; // И вот таким образом сохраняем в нечетный аккумулятор
+        if(Eingang[e] < 0) NegativeZahlen[e] = Eingang[e]; // И вот таким образом сохраняем в отрицательный аккумулятор
     }
 
-    int un_menge = 0; // Количество нечётных
-    for (int uf = 0; uf < NegativeZahlen.Length; uf++)
+    int un_menge = 0; // Количество отрицательных
+        for (int uf = 0; uf < NegativeZahlen.Length; uf++)
     {
         if (NegativeZahlen[uf] != -1) un_menge++;
     }
 
-    int [] NeueNegativeZahlen = new int[un_menge]; // Результирующий массив для нечётных
-    int b = 0;
+    int [] NeueNegativeZahlen = new int[un_menge]; // Результирующий массив для отрицательных
+        int b = 0;
     for (int i = 0; i < NegativeZahlen.Length; i++)
     {
         if (NegativeZahlen[i] != -1)
@@ -235,18 +235,18 @@ class App
         NullZahlen[i] = -1; // Назначаем всем элементам аккумулятора значение -1;
     }
 
-    for (int e = 0; e < Eingang.Length; e++) // Циклом выбираем из входящего массива все отрицательные
+    for (int e = 0; e < Eingang.Length; e++) // Циклом выбираем из входящего массива все нули
     {
-        if(Eingang[e] == 0) NullZahlen[e] = Eingang[e]; // И вот таким образом сохраняем в нечетный аккумулятор
+        if(Eingang[e] == 0) NullZahlen[e] = Eingang[e]; // И вот таким образом сохраняем в нулевой аккумулятор
     }
 
-    int null_menge = 0; // Количество нечётных
+    int null_menge = 0; // Количество нолей
     for (int uf = 0; uf < NullZahlen.Length; uf++)
     {
         if (NullZahlen[uf] != -1) null_menge++;
     }
 
-    int [] NeueNullZahlen = new int[null_menge]; // Результирующий массив для нечётных
+    int [] NeueNullZahlen = new int[null_menge]; // Результирующий массив для нолей
     int d = 0;
     for (int i = 0; i < NullZahlen.Length; i++)
     {
