@@ -110,5 +110,10 @@ namespace Homework_8
         // 10 09 08 07
         }
     }
+
+    class Array
+    {
+        
+    }
 }
 //Конец программы
