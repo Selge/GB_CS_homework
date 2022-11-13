@@ -61,8 +61,26 @@ namespace Homework_8
         // 7 4 2 1
         // 9 5 3 2
         // 8 4 4 2
-            int[,] new_arr = Numbers.ArrayFillerSelector();
-
+            int[,] arr = Numbers.ArrayFillerSelector();
+            Console.WriteLine("Your start array: ");
+            Specials.PrintArr(arr);
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    for (int k = 0; k < arr.GetLength(1) - 1; k++)
+                    {
+                        if (arr[i, k] < arr[i, k + 1])
+                        {
+                        int temp = arr[i, k + 1];
+                        arr[i, k + 1] = arr[i, k];
+                        arr[i, k] = temp;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("Your final array: ");
+            Specials.PrintArr(arr);
         }
 
         public static void Aufgabe56()
@@ -75,6 +93,25 @@ namespace Homework_8
         // 8 4 2 4
         // 5 2 6 7
         // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+            int[,] arr = Numbers.ArrayFillerSelector();
+            Console.WriteLine("Your array: ");
+            Specials.PrintArr(arr);
+
+            int dasMinimum = 0;
+            int Summe = Specials.Rechnung(arr, 0);
+            Console.WriteLine($"Line sums:");
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                int MittelSumme = Specials.Rechnung(arr, i);
+                if (Summe > MittelSumme)
+                {
+                    Summe = MittelSumme;
+                    dasMinimum = i;
+                }
+                Console.WriteLine($"{i+1}: {MittelSumme}");
+            }
+
+            Console.WriteLine($"Smallest element summ row is: {dasMinimum+1} ({Summe})");
         }
 
         public static void Aufgabe58()
@@ -87,6 +124,8 @@ namespace Homework_8
         // Результирующая матрица будет:
         // 18 20
         // 15 18
+            int[,] arr_1 = Numbers.ArrayFillerSelector();
+            int[,] arr_2 = Numbers.ArrayFillerSelector();
         }
 
         public static void Aufgabe60()
@@ -137,16 +176,18 @@ namespace Homework_8
             Console.WriteLine("Welcome to the Automatic Filler Robot 2.0.");
             Console.WriteLine(@"This RAF Robot provides you with a double array of random numbers.
             Please, set the number of rows in the array:");
+
             int c_rows = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Please, set the number of columns in the array:");
             int c_columns = Convert.ToInt32(Console.ReadLine());
+
             int [,] rows_cols = new int [c_rows, c_columns];
             Random nummern = new Random();
             for (int i = 0; i < c_rows; i++)
                 {
                     for (int e = 0; e < c_columns; e++)
                     {
-                    rows_cols[i, e] = nummern.Next(); 
+                    rows_cols[i, e] = nummern.Next(11, 100); 
                     }
                 }
             return rows_cols;
@@ -166,10 +207,39 @@ namespace Homework_8
                 {
                     for (int e = 0; e < columns; e++)
                     {
-                    rows_cols[i, e] = Convert.ToInt32(Console.ReadLine());
+                        rows_cols[i, e] = Convert.ToInt32(Console.ReadLine());
                     }
                 }
             return rows_cols;
+        }
+    }
+
+    class Specials
+    {
+        public static void PrintArr(int [,] rows_cols)
+        {
+            Console.WriteLine("Your array is: ");
+            int [,] matr = rows_cols;
+            for (int i = 0; i < matr.GetLength(0); i++)
+            {
+                for (int j = 0; j < matr.GetLength(1); j++)
+                {
+                    Console.Write($"{String.Format("{0}",matr[i, j])}  ");
+                }
+            Console.WriteLine();
+            }
+            Console.WriteLine(" ");
+        }
+
+        // Служебный метод для суммирования строк массивов
+        public static int Rechnung(int[,] arr, int i)
+        {
+            int Summe = arr[i,0];
+            for (int j = 1; j < arr.GetLength(1); j++)
+            {
+                Summe += arr[i,j];
+            }
+            return Summe;
         }
     }
 }
