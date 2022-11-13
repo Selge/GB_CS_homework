@@ -61,6 +61,8 @@ namespace Homework_8
         // 7 4 2 1
         // 9 5 3 2
         // 8 4 4 2
+            int[,] new_arr = Numbers.ArrayFillerSelector();
+
         }
 
         public static void Aufgabe56()
@@ -111,9 +113,64 @@ namespace Homework_8
         }
     }
 
-    class Array
+    class Numbers
     {
-        
+        public static int[,] ArrayFillerSelector()  // Меню выбора режима ввода массивов - ручного или автоматического
+        {
+            Console.WriteLine(@"We're kindly asking you to choose desired array formation type.
+            Please, type in 'r' to open an robot array filler ('RAF') or 'm' to use manual ('MAF') shell:");
+            var income = Convert.ToString(Console.ReadLine());
+            switch (income)
+            {
+                case "r":
+                    return RealAutomaticFiller(); // Оболочка робота для автоматического заполнения массивов
+                case "m":
+                    return ManualRealFiller(); // Оболочка заполнения массивов вручную
+                default:
+                    Console.WriteLine("Please, select from the options provided!");
+                    return ArrayFillerSelector();
+            }
+        }
+
+        public static int[,] RealAutomaticFiller()  // Этот робот заполняет массив натуральными числами.
+        {
+            Console.WriteLine("Welcome to the Automatic Filler Robot 2.0.");
+            Console.WriteLine(@"This RAF Robot provides you with a double array of random numbers.
+            Please, set the number of rows in the array:");
+            int c_rows = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please, set the number of columns in the array:");
+            int c_columns = Convert.ToInt32(Console.ReadLine());
+            int [,] rows_cols = new int [c_rows, c_columns];
+            Random nummern = new Random();
+            for (int i = 0; i < c_rows; i++)
+                {
+                    for (int e = 0; e < c_columns; e++)
+                    {
+                    rows_cols[i, e] = nummern.Next(); 
+                    }
+                }
+            return rows_cols;
+        }
+
+        public static int[,] ManualRealFiller()  // Вручную заполним массив натуральными числами
+        {
+            Console.WriteLine(@"Welcome to the Manual array filler ('MAF') shell!
+            Here you may manually set an array you want.
+            Please, set the number of rows in the array: ");
+            var rows = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please, set the number of columns in the array: ");
+            var columns = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Now please set up an array of {rows} rows and {columns} columns: ");
+            int [,] rows_cols = new int [rows, columns];
+            for (int i = 0; i < rows; i++)
+                {
+                    for (int e = 0; e < columns; e++)
+                    {
+                    rows_cols[i, e] = Convert.ToInt32(Console.ReadLine());
+                    }
+                }
+            return rows_cols;
+        }
     }
 }
 //Конец программы
