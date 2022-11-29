@@ -1,4 +1,6 @@
-﻿Console.WriteLine("GB C# Homework. Stage 4.");
+﻿namespace Homework_4
+{
+Console.WriteLine("GB C# Homework. Stage 4.");
 
 int Number()
 {
@@ -105,3 +107,4 @@ void Print(int[] mass)
 }
 
 Print(Massive());
+}
