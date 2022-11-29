@@ -1,6 +1,6 @@
-﻿namespace Homework_6
+﻿// Старт программы
+namespace Homework_6
 {
-// Старт программы
     class App
         {
             static void Main()
@@ -282,5 +282,5 @@
             Console.WriteLine($"{ZeroList.Count()} zeros in total.");
         }
     }
-//Конец программы
 }
+//Конец программы

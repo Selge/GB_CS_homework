@@ -1,6 +1,6 @@
-﻿namespace Homework_5
+﻿// Старт программы
+namespace Homework_5
 {
-// Старт программы
      class App
     {
         static void Main()
@@ -332,5 +332,5 @@
             }
         }
     }
-//Конец программы
 }
+//Конец программы

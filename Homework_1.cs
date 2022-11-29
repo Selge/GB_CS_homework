@@ -1,4 +1,5 @@
-﻿namespace Homework_1
+﻿// Старт программы
+namespace Homework_1
 {
     class App
     {
@@ -149,3 +150,4 @@
         }
     }
 }
+//Конец программы
